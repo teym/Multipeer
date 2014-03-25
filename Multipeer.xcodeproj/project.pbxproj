@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F5D45D9918E14A5300A3576F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D45D9818E14A5300A3576F /* Foundation.framework */; };
+		F5D45D9E18E14A5300A3576F /* Multipeer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5D45D9D18E14A5300A3576F /* Multipeer.h */; };
+		F5D45DA018E14A5300A3576F /* Multipeer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D45D9F18E14A5300A3576F /* Multipeer.m */; };
+		F5D45DA718E14A5300A3576F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D45DA618E14A5300A3576F /* XCTest.framework */; };
+		F5D45DA818E14A5300A3576F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D45D9818E14A5300A3576F /* Foundation.framework */; };
+		F5D45DAA18E14A5300A3576F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D45DA918E14A5300A3576F /* UIKit.framework */; };
+		F5D45DAD18E14A5400A3576F /* libMultipeer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D45D9518E14A5300A3576F /* libMultipeer.a */; };
+		F5D45DB318E14A5400A3576F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5D45DB118E14A5400A3576F /* InfoPlist.strings */; };
+		F5D45DB518E14A5400A3576F /* MultipeerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D45DB418E14A5400A3576F /* MultipeerTests.m */; };
+		F5D45DBF18E14A9D00A3576F /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D45DBE18E14A9D00A3576F /* MultipeerConnectivity.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F5D45DAB18E14A5400A3576F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5D45D8D18E14A5300A3576F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5D45D9418E14A5300A3576F;
+			remoteInfo = Multipeer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F5D45D9318E14A5300A3576F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				F5D45D9E18E14A5300A3576F /* Multipeer.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F5D45D9518E14A5300A3576F /* libMultipeer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMultipeer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5D45D9818E14A5300A3576F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F5D45D9C18E14A5300A3576F /* Multipeer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Multipeer-Prefix.pch"; sourceTree = "<group>"; };
+		F5D45D9D18E14A5300A3576F /* Multipeer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Multipeer.h; sourceTree = "<group>"; };
+		F5D45D9F18E14A5300A3576F /* Multipeer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Multipeer.m; sourceTree = "<group>"; };
+		F5D45DA518E14A5300A3576F /* MultipeerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultipeerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5D45DA618E14A5300A3576F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F5D45DA918E14A5300A3576F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		F5D45DB018E14A5400A3576F /* MultipeerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MultipeerTests-Info.plist"; sourceTree = "<group>"; };
+		F5D45DB218E14A5400A3576F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F5D45DB418E14A5400A3576F /* MultipeerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipeerTests.m; sourceTree = "<group>"; };
+		F5D45DBE18E14A9D00A3576F /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F5D45D9218E14A5300A3576F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5D45DBF18E14A9D00A3576F /* MultipeerConnectivity.framework in Frameworks */,
+				F5D45D9918E14A5300A3576F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5D45DA218E14A5300A3576F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5D45DA718E14A5300A3576F /* XCTest.framework in Frameworks */,
+				F5D45DAA18E14A5300A3576F /* UIKit.framework in Frameworks */,
+				F5D45DA818E14A5300A3576F /* Foundation.framework in Frameworks */,
+				F5D45DAD18E14A5400A3576F /* libMultipeer.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F5D45D8C18E14A5300A3576F = {
+			isa = PBXGroup;
+			children = (
+				F5D45D9A18E14A5300A3576F /* Multipeer */,
+				F5D45DAE18E14A5400A3576F /* MultipeerTests */,
+				F5D45D9718E14A5300A3576F /* Frameworks */,
+				F5D45D9618E14A5300A3576F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F5D45D9618E14A5300A3576F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5D45D9518E14A5300A3576F /* libMultipeer.a */,
+				F5D45DA518E14A5300A3576F /* MultipeerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5D45D9718E14A5300A3576F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5D45DBE18E14A9D00A3576F /* MultipeerConnectivity.framework */,
+				F5D45D9818E14A5300A3576F /* Foundation.framework */,
+				F5D45DA618E14A5300A3576F /* XCTest.framework */,
+				F5D45DA918E14A5300A3576F /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5D45D9A18E14A5300A3576F /* Multipeer */ = {
+			isa = PBXGroup;
+			children = (
+				F5D45D9D18E14A5300A3576F /* Multipeer.h */,
+				F5D45D9F18E14A5300A3576F /* Multipeer.m */,
+				F5D45D9B18E14A5300A3576F /* Supporting Files */,
+			);
+			path = Multipeer;
+			sourceTree = "<group>";
+		};
+		F5D45D9B18E14A5300A3576F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F5D45D9C18E14A5300A3576F /* Multipeer-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5D45DAE18E14A5400A3576F /* MultipeerTests */ = {
+			isa = PBXGroup;
+			children = (
+				F5D45DB418E14A5400A3576F /* MultipeerTests.m */,
+				F5D45DAF18E14A5400A3576F /* Supporting Files */,
+			);
+			path = MultipeerTests;
+			sourceTree = "<group>";
+		};
+		F5D45DAF18E14A5400A3576F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F5D45DB018E14A5400A3576F /* MultipeerTests-Info.plist */,
+				F5D45DB118E14A5400A3576F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F5D45D9418E14A5300A3576F /* Multipeer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5D45DB818E14A5400A3576F /* Build configuration list for PBXNativeTarget "Multipeer" */;
+			buildPhases = (
+				F5D45D9118E14A5300A3576F /* Sources */,
+				F5D45D9218E14A5300A3576F /* Frameworks */,
+				F5D45D9318E14A5300A3576F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Multipeer;
+			productName = Multipeer;
+			productReference = F5D45D9518E14A5300A3576F /* libMultipeer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		F5D45DA418E14A5300A3576F /* MultipeerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5D45DBB18E14A5400A3576F /* Build configuration list for PBXNativeTarget "MultipeerTests" */;
+			buildPhases = (
+				F5D45DA118E14A5300A3576F /* Sources */,
+				F5D45DA218E14A5300A3576F /* Frameworks */,
+				F5D45DA318E14A5300A3576F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F5D45DAC18E14A5400A3576F /* PBXTargetDependency */,
+			);
+			name = MultipeerTests;
+			productName = MultipeerTests;
+			productReference = F5D45DA518E14A5300A3576F /* MultipeerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5D45D8D18E14A5300A3576F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Mike;
+			};
+			buildConfigurationList = F5D45D9018E14A5300A3576F /* Build configuration list for PBXProject "Multipeer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F5D45D8C18E14A5300A3576F;
+			productRefGroup = F5D45D9618E14A5300A3576F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F5D45D9418E14A5300A3576F /* Multipeer */,
+				F5D45DA418E14A5300A3576F /* MultipeerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5D45DA318E14A5300A3576F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5D45DB318E14A5400A3576F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5D45D9118E14A5300A3576F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5D45DA018E14A5300A3576F /* Multipeer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5D45DA118E14A5300A3576F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5D45DB518E14A5400A3576F /* MultipeerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F5D45DAC18E14A5400A3576F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5D45D9418E14A5300A3576F /* Multipeer */;
+			targetProxy = F5D45DAB18E14A5400A3576F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F5D45DB118E14A5400A3576F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5D45DB218E14A5400A3576F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F5D45DB618E14A5400A3576F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F5D45DB718E14A5400A3576F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F5D45DB918E14A5400A3576F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/Multipeer.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Multipeer/Multipeer-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F5D45DBA18E14A5400A3576F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/Multipeer.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Multipeer/Multipeer-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		F5D45DBC18E14A5400A3576F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Multipeer/Multipeer-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MultipeerTests/MultipeerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F5D45DBD18E14A5400A3576F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Multipeer/Multipeer-Prefix.pch";
+				INFOPLIST_FILE = "MultipeerTests/MultipeerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F5D45D9018E14A5300A3576F /* Build configuration list for PBXProject "Multipeer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5D45DB618E14A5400A3576F /* Debug */,
+				F5D45DB718E14A5400A3576F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5D45DB818E14A5400A3576F /* Build configuration list for PBXNativeTarget "Multipeer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5D45DB918E14A5400A3576F /* Debug */,
+				F5D45DBA18E14A5400A3576F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F5D45DBB18E14A5400A3576F /* Build configuration list for PBXNativeTarget "MultipeerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5D45DBC18E14A5400A3576F /* Debug */,
+				F5D45DBD18E14A5400A3576F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F5D45D8D18E14A5300A3576F /* Project object */;
+}
