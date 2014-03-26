@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F53671B618E28A1800CB44D7 /* MZMultipeer.m in Sources */ = {isa = PBXBuildFile; fileRef = F53671B518E28A1800CB44D7 /* MZMultipeer.m */; };
+		F53671B918E28A2900CB44D7 /* MZPeer.m in Sources */ = {isa = PBXBuildFile; fileRef = F53671B818E28A2900CB44D7 /* MZPeer.m */; };
 		F5D45D9918E14A5300A3576F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D45D9818E14A5300A3576F /* Foundation.framework */; };
-		F5D45D9E18E14A5300A3576F /* Multipeer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5D45D9D18E14A5300A3576F /* Multipeer.h */; };
-		F5D45DA018E14A5300A3576F /* Multipeer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D45D9F18E14A5300A3576F /* Multipeer.m */; };
 		F5D45DA718E14A5300A3576F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D45DA618E14A5300A3576F /* XCTest.framework */; };
 		F5D45DA818E14A5300A3576F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D45D9818E14A5300A3576F /* Foundation.framework */; };
 		F5D45DAA18E14A5300A3576F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D45DA918E14A5300A3576F /* UIKit.framework */; };
@@ -36,18 +36,20 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				F5D45D9E18E14A5300A3576F /* Multipeer.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F53671B418E28A1800CB44D7 /* MZMultipeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMultipeer.h; sourceTree = "<group>"; };
+		F53671B518E28A1800CB44D7 /* MZMultipeer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZMultipeer.m; sourceTree = "<group>"; };
+		F53671B718E28A2900CB44D7 /* MZPeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZPeer.h; sourceTree = "<group>"; };
+		F53671B818E28A2900CB44D7 /* MZPeer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZPeer.m; sourceTree = "<group>"; };
+		F53671BA18E2FD1700CB44D7 /* MZPeer_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MZPeer_private.h; sourceTree = "<group>"; };
 		F5D45D9518E14A5300A3576F /* libMultipeer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMultipeer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5D45D9818E14A5300A3576F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F5D45D9C18E14A5300A3576F /* Multipeer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Multipeer-Prefix.pch"; sourceTree = "<group>"; };
-		F5D45D9D18E14A5300A3576F /* Multipeer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Multipeer.h; sourceTree = "<group>"; };
-		F5D45D9F18E14A5300A3576F /* Multipeer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Multipeer.m; sourceTree = "<group>"; };
 		F5D45DA518E14A5300A3576F /* MultipeerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultipeerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5D45DA618E14A5300A3576F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		F5D45DA918E14A5300A3576F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -114,8 +116,11 @@
 		F5D45D9A18E14A5300A3576F /* Multipeer */ = {
 			isa = PBXGroup;
 			children = (
-				F5D45D9D18E14A5300A3576F /* Multipeer.h */,
-				F5D45D9F18E14A5300A3576F /* Multipeer.m */,
+				F53671B418E28A1800CB44D7 /* MZMultipeer.h */,
+				F53671B518E28A1800CB44D7 /* MZMultipeer.m */,
+				F53671B718E28A2900CB44D7 /* MZPeer.h */,
+				F53671BA18E2FD1700CB44D7 /* MZPeer_private.h */,
+				F53671B818E28A2900CB44D7 /* MZPeer.m */,
 				F5D45D9B18E14A5300A3576F /* Supporting Files */,
 			);
 			path = Multipeer;
@@ -228,7 +233,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5D45DA018E14A5300A3576F /* Multipeer.m in Sources */,
+				F53671B618E28A1800CB44D7 /* MZMultipeer.m in Sources */,
+				F53671B918E28A2900CB44D7 /* MZPeer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +415,7 @@
 				F5D45DBA18E14A5400A3576F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F5D45DBB18E14A5400A3576F /* Build configuration list for PBXNativeTarget "MultipeerTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +424,7 @@
 				F5D45DBD18E14A5400A3576F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
