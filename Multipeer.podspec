@@ -89,7 +89,7 @@ Pod::Spec.new do |s|
   s.source_files  = 'Multipeer', 'Multipeer/**/*.{h,m}'
   s.exclude_files = 'Classes/Exclude'
 
-  # s.public_header_files = 'Classes/**/*.h'
+  s.public_header_files = 'Multipeer/Head/*.h'
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

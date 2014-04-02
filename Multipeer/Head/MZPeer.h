@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 
 typedef enum{PeerUnConnected,PeerConnecting,PeerConnected} PeerStatus;
-
+@class MCPeerID;
 @interface MZPeer : NSObject
+-(id) initWithName:(NSString*) name info:(NSDictionary*) info;
+-(id) initWithPeer:(MCPeerID*)peer info:(NSDictionary *)info;
+@property (readonly) MCPeerID * peer;
 @property (readonly) NSString * name;
-@property (readonly) NSDictionary * discoveryInfo;
-@property (readonly) PeerStatus status;
+@property (strong) NSDictionary * discoveryInfo;
+@property (assign) PeerStatus status;
 @end

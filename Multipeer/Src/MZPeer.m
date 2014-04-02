@@ -7,11 +7,10 @@
 //
 
 #import "MZPeer.h"
-#import "MZPeer_private.h"
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 
 @implementation MZPeer
--(id) initWithName:(NSString*) name discoveryInfo:(NSDictionary*) info{
+-(id) initWithName:(NSString*) name info:(NSDictionary*) info{
     self = [super init];
     if(self){
         _name = name;
@@ -20,19 +19,13 @@
     }
     return self;
 }
--(id) initWithPeerID:(MCPeerID*) peerID discoveryInfo:(NSDictionary*) info{
+-(id) initWithPeer:(MCPeerID *)peer info:(NSDictionary *)info{
     self = [super init];
     if(self){
-        _name = peerID.displayName;
+        _name = peer.displayName;
         _discoveryInfo = info;
         _status = PeerUnConnected;
-        _identify = peerID;
     }
     return self;
-}
--(void) updatePeerID:(MCPeerID*) peerID discoveryInfo:(NSDictionary*) info{
-    self.identify = peerID;
-    self.discoveryInfo = info;
-    self.name = peerID.displayName;
 }
 @end
