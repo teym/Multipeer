@@ -12,8 +12,16 @@
 #import "MZResponse.h"
 #import "MZNetDataTask.h"
 #import "MZPeer.h"
+#import "MZNetDataTask_Private.h"
 
 #define ServiceType @"MZ-pub"
+
+@interface MZPackage (Ptotocal)
++(instancetype) packageWithData:(NSData*) data;
++(instancetype) packageWithHeadString:(NSString *)str;
++(NSData*) makeSendData:(MZPackage*) pack;
++(NSString*) makeStandHeadString:(MZPackage*) pack;
+@end
 
 @interface MZNetService ()<MCSessionDelegate,MCNearbyServiceAdvertiserDelegate,MCNearbyServiceBrowserDelegate>
 @property (strong) dispatch_queue_t sendQueue;
@@ -66,20 +74,31 @@
     [self.session disconnect];
     //clean request recving peers
 }
-
+-(void) taskWaitResponse:(MZNetDataTask*) task{
+    
+}
+-(void) taskFinish:(MZNetDataTask*) task{
+    
+}
 -(MZNetDataTask*) request:(MZRequest*) request withFinalBlock:(void(^)(MZRequest*request,MZResponse* response,NSError*error)) block{
-    MZNetDataTask * task = [[MZNetDataTask alloc] init];
-    task.request = request;
+    MZNetDataTask * task = [[MZNetDataTask alloc] initWithRequest:request];
     task.finalBlock = block;
+    __weak id wtask = task;
+    task.sendFinalBlock = ^(){
+        [self taskWaitResponse:wtask];
+    };
     [self startTask:task];
     return task;
 }
 
 -(MZNetDataTask*) response:(MZResponse*) respons forRequest:(MZRequest*)request withFinalBlock:(void(^)(MZRequest*request,MZResponse* response,NSError*error))block{
-    MZNetDataTask * task = [[MZNetDataTask alloc] init];
+    MZNetDataTask * task = [[MZNetDataTask alloc] initWithResponse:respons];
     task.request = request;
-    task.response = respons;
     task.finalBlock = block;
+    __weak id wtask = task;
+    task.sendFinalBlock = ^(){
+        [self taskFinish:wtask];
+    };
     [self startTask:task];
     return task;
 }
@@ -119,17 +138,71 @@
     
     [self.delegate onNewPeer:peer type:type];
 }
--(void) onPackBeginSend:(MZPackage*) pack withPeer:(MCPeerID*) peerID{
+-(void) onTaskBeginSend:(MZNetDataTask*) task withPeers:(NSArray*) peers process:(NSProgress*) process{
     
 }
--(void) onPackEndSend:(MZPackage*) pack withPeer:(MCPeerID*) peerID{
+-(void) onTaskEndSend:(MZNetDataTask*) task withPeers:(NSArray*) peers error:(NSError*) error{
     
 }
--(void) onPackBeginRecv:(MZPackage*) pack withPeer:(MCPeerID*) peerID{
+-(void) onPackBeginRecv:(MZPackage*) pack withPeer:(MCPeerID*) peerID process:(NSProgress*) process{
     
 }
--(void) onPackEndRecv:(MZPackage*) pack withPeer:(MCPeerID*) peerID{
+-(void) onPackEndRecv:(MZPackage*) pack withPeer:(MCPeerID*) peerID error:(NSError*) error{
     
+}
+-(NSArray *) getPeersWillSend:(MZPackage*) pack{
+    NSArray * ret = nil;
+    if(pack.peerName){
+        MZPeer * peer = [self.connectedPeers objectForKey:pack.peerName];
+        if(peer){
+            ret = @[peer.peer];
+        }
+    }else if ([pack.method isEqualToString:@"Broadcast"]){
+        ret = [self.connectedPeers allValues];//map to peerID
+    }
+    return ret;
+}
+-(void) startTaskSending:(MZNetDataTask*) task{
+    BOOL isFile = ([task packageWillSend].localFile != nil);
+    if(isFile){
+        [self sendFileTask:task];
+    }else{
+        [self sendDataTask:task];
+    }
+}
+-(void) sendDataTask:(MZNetDataTask*) task{
+    MZPackage * pack = [task packageWillSend];
+    NSData * data = [MZPackage makeSendData:pack];
+    NSArray * peers = [self getPeersWillSend:pack];
+    
+    [self onTaskBeginSend:task withPeers:peers process:nil];
+    dispatch_async(self.sendQueue, ^{
+        NSError * error = nil;
+        BOOL ret = [self.session sendData:data toPeers:peers withMode:MCSessionSendDataReliable error:&error];
+        dispatch_async(self.processQueue, ^{
+            NSLog(@"send pack:%@ result:%d error:%@",pack.resource,ret,error);
+            [self onTaskEndSend:task withPeers:peers error:error];
+        });
+    });
+}
+-(void) sendFileTask:(MZNetDataTask*) task{
+    MZPackage * pack = [task packageWillSend];
+    NSString * fileName = [MZPackage makeStandHeadString:pack];
+    NSURL * file = [[task packageWillSend] localFile];
+    NSArray * peers = [self getPeersWillSend:pack];
+    
+    [self onTaskBeginSend:task withPeers:peers process:nil];
+    dispatch_async(self.sendQueue, ^{
+        NSProgress * process = [self.session sendResourceAtURL:file withName:fileName toPeer:peers.firstObject withCompletionHandler:^(NSError *error) {
+            dispatch_async(self.processQueue, ^{
+                NSLog(@"send resource:%@ error:%@",file,error);
+                [self onTaskEndSend:task withPeers:peers error:error];
+            });
+        }];
+        dispatch_async(self.processQueue, ^{
+            [self onTaskBeginSend:task withPeers:peers process:process];
+        });
+    });
 }
 #pragma mark - MCSessionDelegate protocol conformance
 
@@ -144,8 +217,8 @@
 {
     dispatch_async(self.processQueue, ^{
         MZPackage * pack = [MZPackage packageWithData:data];
-        [self onPackBeginRecv:pack withPeer:peerID];
-        [self onPackEndRecv:pack withPeer:peerID];
+        [self onPackBeginRecv:pack withPeer:peerID process:nil];
+        [self onPackEndRecv:pack withPeer:peerID error:nil];
     });
 }
 
@@ -153,37 +226,28 @@
 {
     dispatch_async(self.processQueue, ^{
         MZPackage * pack = [MZPackage packageWithHeadString:resourceName];
-        pack.progress = progress;
-        [self onPackBeginRecv:pack withPeer:peerID];
+        [self onPackBeginRecv:pack withPeer:peerID process:progress];
     });
 }
 
 - (void)session:(MCSession *)session didFinishReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID atURL:(NSURL *)localURL withError:(NSError *)error
 {
     dispatch_async(self.processQueue, ^{
-        NSString * packKey = [self keyForPack:resourceName];
-        MZPackage* pack = [self.recving objectForKey:packKey];
+        MZPackage * pack = [MZPackage packageWithHeadString:resourceName];
+        pack = [self.recving objectForKey:pack.resource];
         if(error){
             pack.error = error;
         }
         else{
             pack.localFile = localURL;
         }
-        [self onPackEndRecv:pack withPeer:peerID];
+        [self onPackEndRecv:pack withPeer:peerID error:error];
     });
 }
 
 - (void)session:(MCSession *)session didReceiveStream:(NSInputStream *)stream withName:(NSString *)streamName fromPeer:(MCPeerID *)peerID
 {
     //    NSLog(@"didReceiveStream %@ from %@", streamName, peerID.displayName);
-}
-
-#pragma mark - protocal
--(NSString *) keyForPack:(NSString*) str{
-    return @"";
-}
--(id) objForPack:(NSString*) str{
-    return nil;
 }
 
 #pragma mark - MCNearbyServiceBrowserDelegate protocol conformance
@@ -241,5 +305,78 @@
 - (void)advertiser:(MCNearbyServiceAdvertiser *)advertiser didNotStartAdvertisingPeer:(NSError *)error
 {
     NSLog(@"didNotStartAdvertisingForPeers: %@", error);
+}
+@end
+
+
+@implementation MZPackage (Ptotocal)
++(instancetype) packageWithData:(NSData*) data{
+    NSArray * arr = [self splitHeadAndContent:data];
+    NSAssert(arr.count==2, @"parse error");
+    NSDictionary * dict = [self getStandHead:[[NSString alloc] initWithData:arr.firstObject encoding:NSUTF8StringEncoding]];
+    MZPackage* result = [self objWithHeadInfo:dict];
+    result.data = arr.lastObject;
+    return result;
+}
++(instancetype) packageWithHeadString:(NSString *)str{
+    NSDictionary * dict = [self getStandHead:str];
+    return [self objWithHeadInfo:dict];
+}
++(instancetype) objWithHeadInfo:(NSDictionary*) dict{
+    if(!dict) return nil;
+    MZPackage * result = nil;
+    if([[dict objectForKey:@"Type"] isEqualToString:@"Request"]){
+        result = [[MZRequest alloc] init];
+    }else{
+        result = [[MZResponse alloc] init];
+    }
+    result.method = [dict objectForKey:@"Method"];
+    result.resource = [dict objectForKey:@"Resource"];
+    result.MIMEType = [dict objectForKey:@"MIMEType"];
+    result.info = [dict objectForKey:@"Info"];
+    return result;
+}
++(NSString*) makeStandHeadString:(MZPackage*) pack{
+    return [NSString stringWithFormat:@"{%@}",[self makeHeadString:pack]];
+}
++(NSData*) makeSendData:(MZPackage*) pack{
+    NSAssert(pack.data, @"only send data can use this method");
+    NSString * head = [self makeStandHeadString:pack];
+    NSMutableData * data = [NSMutableData dataWithData:[head dataUsingEncoding:NSUTF8StringEncoding]];
+    [data appendData:pack.data];
+    return data;
+}
++(NSDictionary *) getStandHead:(NSString*) headStr{
+    NSAssert([headStr hasPrefix:@"{{"]&&[headStr hasSuffix:@"}}"], @"protocal error");
+    NSData * data = [[headStr substringWithRange:NSMakeRange(1, headStr.length-2)] dataUsingEncoding:NSUTF8StringEncoding];
+    NSError * error = nil;
+    id obj = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+    return obj;
+}
+
+
+#pragma mark --help
++(NSString*) makeHeadString:(MZPackage*) pack{
+    NSString * type = [pack isKindOfClass:[MZRequest class]]?@"Request":@"Response";
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    if(pack.info){
+        [dict setValue:pack.info forKey:@"Info"];
+    }
+    [dict addEntriesFromDictionary: @{@"Type":type,@"Method":pack.method,@"Resource":pack.resource,@"MIMEType":pack.MIMEType}];
+    NSError * error = nil;
+    NSData * data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
+    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+}
++(NSArray *) splitHeadAndContent:(NSData *) data{
+    NSData * head = nil;
+    NSData * content = nil;
+    NSData * spliter = [@"}}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSRange range = [data rangeOfData:spliter options:NSDataSearchAnchored range:NSMakeRange(0, data.length)];
+    if(range.location != NSNotFound){
+        head = [data subdataWithRange:NSMakeRange(0, range.location+range.length)];
+        content = [data subdataWithRange:NSMakeRange(range.location+range.length, data.length-(range.location+range.length))];
+        return @[head,content];
+    }
+    return nil;
 }
 @end

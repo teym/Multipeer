@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 @interface MZPackage : NSObject
-+(instancetype) packageWithData:(NSData*) data;
-+(instancetype) packageWithHeadString:(NSString *)str;
+@property (strong) NSString * peerName;
 @property (strong) NSString * resource;
-@property (strong) NSString * method;
+@property (strong) NSString * method; //Get Post Broadcast
 @property (strong) NSString* MIMEType;
 @property (strong) NSDictionary * info;
 @property (strong) NSURL * localFile;

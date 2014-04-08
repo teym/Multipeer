@@ -1,480 +1,1168 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		F55D132018E827AD00DC2A92 /* MZNetDataTask.m in Sources */ = {isa = PBXBuildFile; fileRef = F55D131918E827AD00DC2A92 /* MZNetDataTask.m */; };
-		F55D132118E827AD00DC2A92 /* MZNetDataTask.m in Sources */ = {isa = PBXBuildFile; fileRef = F55D131918E827AD00DC2A92 /* MZNetDataTask.m */; };
-		F55D132218E827AD00DC2A92 /* MZNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = F55D131A18E827AD00DC2A92 /* MZNetService.m */; };
-		F55D132318E827AD00DC2A92 /* MZNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = F55D131A18E827AD00DC2A92 /* MZNetService.m */; };
-		F55D132418E827AD00DC2A92 /* MZPeer.m in Sources */ = {isa = PBXBuildFile; fileRef = F55D131B18E827AD00DC2A92 /* MZPeer.m */; };
-		F55D132518E827AD00DC2A92 /* MZPeer.m in Sources */ = {isa = PBXBuildFile; fileRef = F55D131B18E827AD00DC2A92 /* MZPeer.m */; };
-		F55D132818E827AD00DC2A92 /* MZRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F55D131E18E827AD00DC2A92 /* MZRequest.m */; };
-		F55D132918E827AD00DC2A92 /* MZRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F55D131E18E827AD00DC2A92 /* MZRequest.m */; };
-		F55D132A18E827AD00DC2A92 /* MZResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F55D131F18E827AD00DC2A92 /* MZResponse.m */; };
-		F55D132B18E827AD00DC2A92 /* MZResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F55D131F18E827AD00DC2A92 /* MZResponse.m */; };
-		F55D137E18EC4F3200DC2A92 /* MZPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = F55D137D18EC4F3200DC2A92 /* MZPackage.m */; };
-		F5D45D9918E14A5300A3576F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D45D9818E14A5300A3576F /* Foundation.framework */; };
-		F5D45DA718E14A5300A3576F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D45DA618E14A5300A3576F /* XCTest.framework */; };
-		F5D45DA818E14A5300A3576F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D45D9818E14A5300A3576F /* Foundation.framework */; };
-		F5D45DAA18E14A5300A3576F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D45DA918E14A5300A3576F /* UIKit.framework */; };
-		F5D45DAD18E14A5400A3576F /* libMultipeer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D45D9518E14A5300A3576F /* libMultipeer.a */; };
-		F5D45DB318E14A5400A3576F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5D45DB118E14A5400A3576F /* InfoPlist.strings */; };
-		F5D45DB518E14A5400A3576F /* MultipeerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D45DB418E14A5400A3576F /* MultipeerTests.m */; };
-		F5D45DBF18E14A9D00A3576F /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D45DBE18E14A9D00A3576F /* MultipeerConnectivity.framework */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		F5D45DAB18E14A5400A3576F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F5D45D8D18E14A5300A3576F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F5D45D9418E14A5300A3576F;
-			remoteInfo = Multipeer;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		F5D45D9318E14A5300A3576F /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
-/* Begin PBXFileReference section */
-		F55D131218E827AD00DC2A92 /* MZNetDataTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZNetDataTask.h; sourceTree = "<group>"; };
-		F55D131318E827AD00DC2A92 /* MZNetService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZNetService.h; sourceTree = "<group>"; };
-		F55D131418E827AD00DC2A92 /* MZPeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZPeer.h; sourceTree = "<group>"; };
-		F55D131618E827AD00DC2A92 /* MZRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZRequest.h; sourceTree = "<group>"; };
-		F55D131718E827AD00DC2A92 /* MZResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZResponse.h; sourceTree = "<group>"; };
-		F55D131918E827AD00DC2A92 /* MZNetDataTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZNetDataTask.m; sourceTree = "<group>"; };
-		F55D131A18E827AD00DC2A92 /* MZNetService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZNetService.m; sourceTree = "<group>"; };
-		F55D131B18E827AD00DC2A92 /* MZPeer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZPeer.m; sourceTree = "<group>"; };
-		F55D131E18E827AD00DC2A92 /* MZRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZRequest.m; sourceTree = "<group>"; };
-		F55D131F18E827AD00DC2A92 /* MZResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZResponse.m; sourceTree = "<group>"; };
-		F55D137A18EC4EF400DC2A92 /* MZPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZPackage.h; sourceTree = "<group>"; };
-		F55D137D18EC4F3200DC2A92 /* MZPackage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZPackage.m; sourceTree = "<group>"; };
-		F5D45D9518E14A5300A3576F /* libMultipeer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMultipeer.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5D45D9818E14A5300A3576F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		F5D45D9C18E14A5300A3576F /* Multipeer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Multipeer-Prefix.pch"; sourceTree = "<group>"; };
-		F5D45DA518E14A5300A3576F /* MultipeerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultipeerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5D45DA618E14A5300A3576F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		F5D45DA918E14A5300A3576F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		F5D45DB018E14A5400A3576F /* MultipeerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MultipeerTests-Info.plist"; sourceTree = "<group>"; };
-		F5D45DB218E14A5400A3576F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F5D45DB418E14A5400A3576F /* MultipeerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipeerTests.m; sourceTree = "<group>"; };
-		F5D45DBE18E14A9D00A3576F /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		F5D45D9218E14A5300A3576F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F5D45DBF18E14A9D00A3576F /* MultipeerConnectivity.framework in Frameworks */,
-				F5D45D9918E14A5300A3576F /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F5D45DA218E14A5300A3576F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F5D45DA718E14A5300A3576F /* XCTest.framework in Frameworks */,
-				F5D45DAA18E14A5300A3576F /* UIKit.framework in Frameworks */,
-				F5D45DA818E14A5300A3576F /* Foundation.framework in Frameworks */,
-				F5D45DAD18E14A5400A3576F /* libMultipeer.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		F55D131118E827AD00DC2A92 /* Head */ = {
-			isa = PBXGroup;
-			children = (
-				F55D131218E827AD00DC2A92 /* MZNetDataTask.h */,
-				F55D131318E827AD00DC2A92 /* MZNetService.h */,
-				F55D131418E827AD00DC2A92 /* MZPeer.h */,
-				F55D131618E827AD00DC2A92 /* MZRequest.h */,
-				F55D131718E827AD00DC2A92 /* MZResponse.h */,
-				F55D137A18EC4EF400DC2A92 /* MZPackage.h */,
-			);
-			path = Head;
-			sourceTree = "<group>";
-		};
-		F55D131818E827AD00DC2A92 /* Src */ = {
-			isa = PBXGroup;
-			children = (
-				F55D131918E827AD00DC2A92 /* MZNetDataTask.m */,
-				F55D131A18E827AD00DC2A92 /* MZNetService.m */,
-				F55D131B18E827AD00DC2A92 /* MZPeer.m */,
-				F55D131E18E827AD00DC2A92 /* MZRequest.m */,
-				F55D131F18E827AD00DC2A92 /* MZResponse.m */,
-				F55D137D18EC4F3200DC2A92 /* MZPackage.m */,
-			);
-			path = Src;
-			sourceTree = "<group>";
-		};
-		F5D45D8C18E14A5300A3576F = {
-			isa = PBXGroup;
-			children = (
-				F5D45D9A18E14A5300A3576F /* Multipeer */,
-				F5D45DAE18E14A5400A3576F /* MultipeerTests */,
-				F5D45D9718E14A5300A3576F /* Frameworks */,
-				F5D45D9618E14A5300A3576F /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		F5D45D9618E14A5300A3576F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F5D45D9518E14A5300A3576F /* libMultipeer.a */,
-				F5D45DA518E14A5300A3576F /* MultipeerTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		F5D45D9718E14A5300A3576F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F5D45DBE18E14A9D00A3576F /* MultipeerConnectivity.framework */,
-				F5D45D9818E14A5300A3576F /* Foundation.framework */,
-				F5D45DA618E14A5300A3576F /* XCTest.framework */,
-				F5D45DA918E14A5300A3576F /* UIKit.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F5D45D9A18E14A5300A3576F /* Multipeer */ = {
-			isa = PBXGroup;
-			children = (
-				F55D131118E827AD00DC2A92 /* Head */,
-				F55D131818E827AD00DC2A92 /* Src */,
-				F5D45D9B18E14A5300A3576F /* Supporting Files */,
-			);
-			path = Multipeer;
-			sourceTree = "<group>";
-		};
-		F5D45D9B18E14A5300A3576F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				F5D45D9C18E14A5300A3576F /* Multipeer-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		F5D45DAE18E14A5400A3576F /* MultipeerTests */ = {
-			isa = PBXGroup;
-			children = (
-				F5D45DB418E14A5400A3576F /* MultipeerTests.m */,
-				F5D45DAF18E14A5400A3576F /* Supporting Files */,
-			);
-			path = MultipeerTests;
-			sourceTree = "<group>";
-		};
-		F5D45DAF18E14A5400A3576F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				F5D45DB018E14A5400A3576F /* MultipeerTests-Info.plist */,
-				F5D45DB118E14A5400A3576F /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		F5D45D9418E14A5300A3576F /* Multipeer */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F5D45DB818E14A5400A3576F /* Build configuration list for PBXNativeTarget "Multipeer" */;
-			buildPhases = (
-				F5D45D9118E14A5300A3576F /* Sources */,
-				F5D45D9218E14A5300A3576F /* Frameworks */,
-				F5D45D9318E14A5300A3576F /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Multipeer;
-			productName = Multipeer;
-			productReference = F5D45D9518E14A5300A3576F /* libMultipeer.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		F5D45DA418E14A5300A3576F /* MultipeerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F5D45DBB18E14A5400A3576F /* Build configuration list for PBXNativeTarget "MultipeerTests" */;
-			buildPhases = (
-				F5D45DA118E14A5300A3576F /* Sources */,
-				F5D45DA218E14A5300A3576F /* Frameworks */,
-				F5D45DA318E14A5300A3576F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F5D45DAC18E14A5400A3576F /* PBXTargetDependency */,
-			);
-			name = MultipeerTests;
-			productName = MultipeerTests;
-			productReference = F5D45DA518E14A5300A3576F /* MultipeerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		F5D45D8D18E14A5300A3576F /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = Mike;
-			};
-			buildConfigurationList = F5D45D9018E14A5300A3576F /* Build configuration list for PBXProject "Multipeer" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = F5D45D8C18E14A5300A3576F;
-			productRefGroup = F5D45D9618E14A5300A3576F /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				F5D45D9418E14A5300A3576F /* Multipeer */,
-				F5D45DA418E14A5300A3576F /* MultipeerTests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		F5D45DA318E14A5300A3576F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F5D45DB318E14A5400A3576F /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		F5D45D9118E14A5300A3576F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F55D132218E827AD00DC2A92 /* MZNetService.m in Sources */,
-				F55D137E18EC4F3200DC2A92 /* MZPackage.m in Sources */,
-				F55D132418E827AD00DC2A92 /* MZPeer.m in Sources */,
-				F55D132A18E827AD00DC2A92 /* MZResponse.m in Sources */,
-				F55D132818E827AD00DC2A92 /* MZRequest.m in Sources */,
-				F55D132018E827AD00DC2A92 /* MZNetDataTask.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F5D45DA118E14A5300A3576F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F5D45DB518E14A5400A3576F /* MultipeerTests.m in Sources */,
-				F55D132318E827AD00DC2A92 /* MZNetService.m in Sources */,
-				F55D132B18E827AD00DC2A92 /* MZResponse.m in Sources */,
-				F55D132518E827AD00DC2A92 /* MZPeer.m in Sources */,
-				F55D132918E827AD00DC2A92 /* MZRequest.m in Sources */,
-				F55D132118E827AD00DC2A92 /* MZNetDataTask.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F5D45DAC18E14A5400A3576F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F5D45D9418E14A5300A3576F /* Multipeer */;
-			targetProxy = F5D45DAB18E14A5400A3576F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		F5D45DB118E14A5400A3576F /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F5D45DB218E14A5400A3576F /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		F5D45DB618E14A5400A3576F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		F5D45DB718E14A5400A3576F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		F5D45DB918E14A5400A3576F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DSTROOT = /tmp/Multipeer.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Multipeer/Multipeer-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		F5D45DBA18E14A5400A3576F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DSTROOT = /tmp/Multipeer.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Multipeer/Multipeer-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		F5D45DBC18E14A5400A3576F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Multipeer/Multipeer-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "MultipeerTests/MultipeerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		F5D45DBD18E14A5400A3576F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Multipeer/Multipeer-Prefix.pch";
-				INFOPLIST_FILE = "MultipeerTests/MultipeerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		F5D45D9018E14A5300A3576F /* Build configuration list for PBXProject "Multipeer" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F5D45DB618E14A5400A3576F /* Debug */,
-				F5D45DB718E14A5400A3576F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F5D45DB818E14A5400A3576F /* Build configuration list for PBXNativeTarget "Multipeer" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F5D45DB918E14A5400A3576F /* Debug */,
-				F5D45DBA18E14A5400A3576F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F5D45DBB18E14A5400A3576F /* Build configuration list for PBXNativeTarget "MultipeerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F5D45DBC18E14A5400A3576F /* Debug */,
-				F5D45DBD18E14A5400A3576F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = F5D45D8D18E14A5300A3576F /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>0B0C53178511436CA460E33F</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>5739E172274A457E8E54E50C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Pods.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5AD86E1F05414959878650A6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0B0C53178511436CA460E33F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>6F967593607D479A9CF79CD2</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Pods-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>F55D131118E827AD00DC2A92</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F55D131218E827AD00DC2A92</string>
+				<string>F55D131318E827AD00DC2A92</string>
+				<string>F55D131418E827AD00DC2A92</string>
+				<string>F55D131618E827AD00DC2A92</string>
+				<string>F55D131718E827AD00DC2A92</string>
+				<string>F55D137A18EC4EF400DC2A92</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Head</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F55D131218E827AD00DC2A92</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>MZNetDataTask.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F55D131318E827AD00DC2A92</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>MZNetService.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F55D131418E827AD00DC2A92</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>MZPeer.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F55D131618E827AD00DC2A92</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>MZRequest.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F55D131718E827AD00DC2A92</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>MZResponse.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F55D131818E827AD00DC2A92</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F55D131918E827AD00DC2A92</string>
+				<string>F55D131A18E827AD00DC2A92</string>
+				<string>F55D131B18E827AD00DC2A92</string>
+				<string>F55D131E18E827AD00DC2A92</string>
+				<string>F55D131F18E827AD00DC2A92</string>
+				<string>F55D137D18EC4F3200DC2A92</string>
+				<string>F5CDA6D518F42EE50079C62F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Src</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F55D131918E827AD00DC2A92</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>MZNetDataTask.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F55D131A18E827AD00DC2A92</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>MZNetService.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F55D131B18E827AD00DC2A92</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>MZPeer.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F55D131E18E827AD00DC2A92</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>MZRequest.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F55D131F18E827AD00DC2A92</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>MZResponse.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F55D132018E827AD00DC2A92</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F55D131918E827AD00DC2A92</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F55D132118E827AD00DC2A92</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F55D131918E827AD00DC2A92</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F55D132218E827AD00DC2A92</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F55D131A18E827AD00DC2A92</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F55D132318E827AD00DC2A92</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F55D131A18E827AD00DC2A92</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F55D132418E827AD00DC2A92</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F55D131B18E827AD00DC2A92</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F55D132518E827AD00DC2A92</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F55D131B18E827AD00DC2A92</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F55D132818E827AD00DC2A92</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F55D131E18E827AD00DC2A92</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F55D132918E827AD00DC2A92</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F55D131E18E827AD00DC2A92</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F55D132A18E827AD00DC2A92</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F55D131F18E827AD00DC2A92</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F55D132B18E827AD00DC2A92</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F55D131F18E827AD00DC2A92</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F55D137A18EC4EF400DC2A92</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>MZPackage.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F55D137D18EC4F3200DC2A92</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>MZPackage.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F55D137E18EC4F3200DC2A92</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F55D137D18EC4F3200DC2A92</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F5CDA6D518F42EE50079C62F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>MZNetDataTask_Private.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F5D45D8C18E14A5300A3576F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F5D45D9A18E14A5300A3576F</string>
+				<string>F5D45DAE18E14A5400A3576F</string>
+				<string>F5D45D9718E14A5300A3576F</string>
+				<string>F5D45D9618E14A5300A3576F</string>
+				<string>5739E172274A457E8E54E50C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F5D45D8D18E14A5300A3576F</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0510</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Mike</string>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>F5D45D9018E14A5300A3576F</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>F5D45D8C18E14A5300A3576F</string>
+			<key>productRefGroup</key>
+			<string>F5D45D9618E14A5300A3576F</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>F5D45D9418E14A5300A3576F</string>
+				<string>F5D45DA418E14A5300A3576F</string>
+			</array>
+		</dict>
+		<key>F5D45D9018E14A5300A3576F</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>F5D45DB618E14A5400A3576F</string>
+				<string>F5D45DB718E14A5400A3576F</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>F5D45D9118E14A5300A3576F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>F55D132218E827AD00DC2A92</string>
+				<string>F55D137E18EC4F3200DC2A92</string>
+				<string>F55D132418E827AD00DC2A92</string>
+				<string>F55D132A18E827AD00DC2A92</string>
+				<string>F55D132818E827AD00DC2A92</string>
+				<string>F55D132018E827AD00DC2A92</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>F5D45D9218E14A5300A3576F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>F5D45DBF18E14A9D00A3576F</string>
+				<string>F5D45D9918E14A5300A3576F</string>
+				<string>5AD86E1F05414959878650A6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>F5D45D9318E14A5300A3576F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>dstPath</key>
+			<string>include/$(PRODUCT_NAME)</string>
+			<key>dstSubfolderSpec</key>
+			<string>16</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXCopyFilesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>F5D45D9418E14A5300A3576F</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>F5D45DB818E14A5400A3576F</string>
+			<key>buildPhases</key>
+			<array>
+				<string>F7B732E430564ECAAB6F180A</string>
+				<string>F5D45D9118E14A5300A3576F</string>
+				<string>F5D45D9218E14A5300A3576F</string>
+				<string>F5D45D9318E14A5300A3576F</string>
+				<string>6F967593607D479A9CF79CD2</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Multipeer</string>
+			<key>productName</key>
+			<string>Multipeer</string>
+			<key>productReference</key>
+			<string>F5D45D9518E14A5300A3576F</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>F5D45D9518E14A5300A3576F</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libMultipeer.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>F5D45D9618E14A5300A3576F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F5D45D9518E14A5300A3576F</string>
+				<string>F5D45DA518E14A5300A3576F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F5D45D9718E14A5300A3576F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F5D45DBE18E14A9D00A3576F</string>
+				<string>F5D45D9818E14A5300A3576F</string>
+				<string>F5D45DA618E14A5300A3576F</string>
+				<string>F5D45DA918E14A5300A3576F</string>
+				<string>0B0C53178511436CA460E33F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F5D45D9818E14A5300A3576F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>F5D45D9918E14A5300A3576F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F5D45D9818E14A5300A3576F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F5D45D9A18E14A5300A3576F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F55D131118E827AD00DC2A92</string>
+				<string>F55D131818E827AD00DC2A92</string>
+				<string>F5D45D9B18E14A5300A3576F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Multipeer</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F5D45D9B18E14A5300A3576F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F5D45D9C18E14A5300A3576F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F5D45D9C18E14A5300A3576F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Multipeer-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F5D45DA118E14A5300A3576F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>F5D45DB518E14A5400A3576F</string>
+				<string>F55D132318E827AD00DC2A92</string>
+				<string>F55D132B18E827AD00DC2A92</string>
+				<string>F55D132518E827AD00DC2A92</string>
+				<string>F55D132918E827AD00DC2A92</string>
+				<string>F55D132118E827AD00DC2A92</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>F5D45DA218E14A5300A3576F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>F5D45DA718E14A5300A3576F</string>
+				<string>F5D45DAA18E14A5300A3576F</string>
+				<string>F5D45DA818E14A5300A3576F</string>
+				<string>F5D45DAD18E14A5400A3576F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>F5D45DA318E14A5300A3576F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>F5D45DB318E14A5400A3576F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>F5D45DA418E14A5300A3576F</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>F5D45DBB18E14A5400A3576F</string>
+			<key>buildPhases</key>
+			<array>
+				<string>F5D45DA118E14A5300A3576F</string>
+				<string>F5D45DA218E14A5300A3576F</string>
+				<string>F5D45DA318E14A5300A3576F</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>F5D45DAC18E14A5400A3576F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>MultipeerTests</string>
+			<key>productName</key>
+			<string>MultipeerTests</string>
+			<key>productReference</key>
+			<string>F5D45DA518E14A5300A3576F</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>F5D45DA518E14A5300A3576F</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>MultipeerTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>F5D45DA618E14A5300A3576F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>XCTest.framework</string>
+			<key>path</key>
+			<string>Library/Frameworks/XCTest.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>F5D45DA718E14A5300A3576F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F5D45DA618E14A5300A3576F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F5D45DA818E14A5300A3576F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F5D45D9818E14A5300A3576F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F5D45DA918E14A5300A3576F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>UIKit.framework</string>
+			<key>path</key>
+			<string>Library/Frameworks/UIKit.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>F5D45DAA18E14A5300A3576F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F5D45DA918E14A5300A3576F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F5D45DAB18E14A5400A3576F</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>F5D45D8D18E14A5300A3576F</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>F5D45D9418E14A5300A3576F</string>
+			<key>remoteInfo</key>
+			<string>Multipeer</string>
+		</dict>
+		<key>F5D45DAC18E14A5400A3576F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>F5D45D9418E14A5300A3576F</string>
+			<key>targetProxy</key>
+			<string>F5D45DAB18E14A5400A3576F</string>
+		</dict>
+		<key>F5D45DAD18E14A5400A3576F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F5D45D9518E14A5300A3576F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F5D45DAE18E14A5400A3576F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F5D45DB418E14A5400A3576F</string>
+				<string>F5D45DAF18E14A5400A3576F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>MultipeerTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F5D45DAF18E14A5400A3576F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F5D45DB018E14A5400A3576F</string>
+				<string>F5D45DB118E14A5400A3576F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F5D45DB018E14A5400A3576F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>MultipeerTests-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F5D45DB118E14A5400A3576F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F5D45DB218E14A5400A3576F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F5D45DB218E14A5400A3576F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F5D45DB318E14A5400A3576F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F5D45DB118E14A5400A3576F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F5D45DB418E14A5400A3576F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>MultipeerTests.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F5D45DB518E14A5400A3576F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F5D45DB418E14A5400A3576F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F5D45DB618E14A5400A3576F</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>F5D45DB718E14A5400A3576F</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>F5D45DB818E14A5400A3576F</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>F5D45DB918E14A5400A3576F</string>
+				<string>F5D45DBA18E14A5400A3576F</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>F5D45DB918E14A5400A3576F</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>5739E172274A457E8E54E50C</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>DSTROOT</key>
+				<string>/tmp/Multipeer.dst</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Multipeer/Multipeer-Prefix.pch</string>
+				<key>OTHER_LDFLAGS</key>
+				<string>-ObjC</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>F5D45DBA18E14A5400A3576F</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>5739E172274A457E8E54E50C</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>DSTROOT</key>
+				<string>/tmp/Multipeer.dst</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Multipeer/Multipeer-Prefix.pch</string>
+				<key>OTHER_LDFLAGS</key>
+				<string>-ObjC</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>F5D45DBB18E14A5400A3576F</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>F5D45DBC18E14A5400A3576F</string>
+				<string>F5D45DBD18E14A5400A3576F</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>F5D45DBC18E14A5400A3576F</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Multipeer/Multipeer-Prefix.pch</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>MultipeerTests/MultipeerTests-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>xctest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>F5D45DBD18E14A5400A3576F</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Multipeer/Multipeer-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>MultipeerTests/MultipeerTests-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>xctest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>F5D45DBE18E14A9D00A3576F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>MultipeerConnectivity.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/MultipeerConnectivity.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>F5D45DBF18E14A9D00A3576F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F5D45DBE18E14A9D00A3576F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F7B732E430564ECAAB6F180A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>F5D45D8D18E14A5300A3576F</string>
+</dict>
+</plist>

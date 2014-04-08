@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MZRequest.h"
+#import "MZResponse.h"
+#import "MZPeer.h"
+#import "MZNetDataTask.h"
 
-@class MZPeer,MZRequest,MZResponse,MZNetDataTask;
 @protocol MZNetServiceDelegate <NSObject>
 -(BOOL) shouldConnect:(MZPeer*) peer type:(NSString*) type;
 -(void) onRequest:(MZRequest*) request withInfo:(id) info;

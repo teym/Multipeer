@@ -11,10 +11,4 @@
 #import "MZResponse.h"
 
 @implementation MZPackage
-+(instancetype) packageWithData:(NSData*) data{
-    return [[MZRequest alloc] init];
-}
-+(instancetype) packageWithHeadString:(NSString *)str{
-    return [[MZResponse alloc] init];
-}
 @end
