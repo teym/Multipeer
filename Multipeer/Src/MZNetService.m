@@ -13,6 +13,7 @@
 #import "MZNetDataTask.h"
 #import "MZPeer.h"
 #import "MZNetDataTask_Private.h"
+#import <NSArray+Funcussion.h>
 
 #define ServiceType @"MZ-pub"
 
@@ -26,13 +27,16 @@
 @interface MZNetService ()<MCSessionDelegate,MCNearbyServiceAdvertiserDelegate,MCNearbyServiceBrowserDelegate>
 @property (strong) dispatch_queue_t sendQueue;
 @property (strong) dispatch_queue_t processQueue;
-@property (strong) NSMutableDictionary * requested;
-@property (strong) NSMutableDictionary * recving;
 @property (strong) NSMutableDictionary * connectedPeers;
 @property (strong) MZPeer * peer;
 @property (strong) MCSession * session;
 @property (strong) MCNearbyServiceAdvertiser * advertiser;
 @property (strong) MCNearbyServiceBrowser * browser;
+
+@property (strong) NSMutableArray * sendingQueue;
+@property (strong) NSMutableDictionary * sendedQueue;
+@property (strong) MZNetDataTask * currentSending;
+@property (strong) NSMutableDictionary * fileRecving;
 @end
 
 @implementation MZNetService
@@ -42,8 +46,9 @@
         _allPeers = [NSMutableArray array];
         self.sendQueue = dispatch_queue_create("mz-send", DISPATCH_QUEUE_SERIAL);
         self.processQueue = dispatch_queue_create("mz-process", DISPATCH_QUEUE_SERIAL);
-        self.requested = [NSMutableDictionary dictionary];
-        self.recving = [NSMutableDictionary dictionary];
+        self.sendingQueue = [NSMutableArray array];
+        self.sendedQueue = [NSMutableDictionary dictionary];
+        self.fileRecving = [NSMutableDictionary dictionary];
         self.connectedPeers = [NSMutableDictionary dictionary];
     }
     return self;
@@ -75,10 +80,18 @@
     //clean request recving peers
 }
 -(void) taskWaitResponse:(MZNetDataTask*) task{
-    
+    [self.sendedQueue setObject:task forKey:task.request.resource];
+    self.currentSending = nil;
+    [self startNext];
 }
 -(void) taskFinish:(MZNetDataTask*) task{
-    
+    if(task == self.currentSending){
+        self.currentSending = nil;
+    }else{
+        [self.sendedQueue removeObjectForKey:task.request.resource];
+    }
+    task.finalBlock(task.request,task.response,task.error);
+    [self startNext];
 }
 -(MZNetDataTask*) request:(MZRequest*) request withFinalBlock:(void(^)(MZRequest*request,MZResponse* response,NSError*error)) block{
     MZNetDataTask * task = [[MZNetDataTask alloc] initWithRequest:request];
@@ -87,7 +100,10 @@
     task.sendFinalBlock = ^(){
         [self taskWaitResponse:wtask];
     };
+    task.progress = [NSProgress progressWithTotalUnitCount:200];
+    dispatch_async(self.processQueue, ^{
     [self startTask:task];
+    });
     return task;
 }
 
@@ -99,11 +115,22 @@
     task.sendFinalBlock = ^(){
         [self taskFinish:wtask];
     };
-    [self startTask:task];
+    task.progress = [NSProgress progressWithTotalUnitCount:100];
+    dispatch_async(self.processQueue, ^{
+        [self startTask:task];
+    });
     return task;
 }
+-(void) startNext{
+    if(self.currentSending==nil){
+        MZNetDataTask * task = self.sendingQueue.firstObject;
+        if(task)
+            [self startTaskSending:task];
+    }
+}
 -(void) startTask:(MZNetDataTask*) task{
-    
+    [self.sendingQueue addObject:task];
+    [self startNext];
 }
 -(void) onPeer:(MCPeerID*)peerID changeState:(MCSessionState) state{
     MZPeer * peer = [self.connectedPeers objectForKey:peerID.displayName];
@@ -135,20 +162,35 @@
     }
     peer.status = PeerConnecting;
     [self.connectedPeers setObject:peer forKey:peer.name];
-    
     [self.delegate onNewPeer:peer type:type];
 }
--(void) onTaskBeginSend:(MZNetDataTask*) task withPeers:(NSArray*) peers process:(NSProgress*) process{
+-(void) onRequest:(MZRequest *) request from:(MCPeerID *) peerID{
+    MZPeer * peer = [self.connectedPeers objectForKey:peerID.displayName];
+    [self.delegate onRequest:request fromPeer:peer];
+}
+-(void) onTaskBeginSend:(MZNetDataTask*) task withPeers:(NSArray*) peers{
     
 }
 -(void) onTaskEndSend:(MZNetDataTask*) task withPeers:(NSArray*) peers error:(NSError*) error{
-    
+    NSAssert(task== self.currentSending, @"error not current task end");
+    task.error = error;
+    task.sendFinalBlock();
 }
 -(void) onPackBeginRecv:(MZPackage*) pack withPeer:(MCPeerID*) peerID process:(NSProgress*) process{
-    
+    if([pack isKindOfClass:[MZResponse class]]){
+        MZNetDataTask * task = [self.sendedQueue objectForKey:pack.resource];
+        task.response = (MZResponse*)pack;
+    }
 }
 -(void) onPackEndRecv:(MZPackage*) pack withPeer:(MCPeerID*) peerID error:(NSError*) error{
-    
+    if([pack isKindOfClass:[MZResponse class]]){
+        MZNetDataTask * task = [self.sendedQueue objectForKey:pack.resource];
+        NSAssert(task.response == pack, @"response error");
+        task.response = (MZResponse*)pack;
+        task.error = error;
+    }else{
+        [self onRequest:(MZRequest*)pack from:peerID];
+    }
 }
 -(NSArray *) getPeersWillSend:(MZPackage*) pack{
     NSArray * ret = nil;
@@ -158,11 +200,17 @@
             ret = @[peer.peer];
         }
     }else if ([pack.method isEqualToString:@"Broadcast"]){
-        ret = [self.connectedPeers allValues];//map to peerID
+        ret = [[self.connectedPeers allValues] map:^id(MZPeer* obj) {
+            return obj.peer;
+        }];
     }
     return ret;
 }
 -(void) startTaskSending:(MZNetDataTask*) task{
+    NSAssert(task == self.sendingQueue.firstObject, @"sending order error");
+    [self.sendingQueue removeObjectAtIndex:0];
+    self.currentSending = task;
+    task.progress.completedUnitCount+=50;
     BOOL isFile = ([task packageWillSend].localFile != nil);
     if(isFile){
         [self sendFileTask:task];
@@ -174,12 +222,15 @@
     MZPackage * pack = [task packageWillSend];
     NSData * data = [MZPackage makeSendData:pack];
     NSArray * peers = [self getPeersWillSend:pack];
-    
-    [self onTaskBeginSend:task withPeers:peers process:nil];
+    [task.progress becomeCurrentWithPendingUnitCount:50];
+    NSProgress * progress = [NSProgress progressWithTotalUnitCount:100];
+    [task.progress resignCurrent];
+    [self onTaskBeginSend:task withPeers:peers];
     dispatch_async(self.sendQueue, ^{
         NSError * error = nil;
         BOOL ret = [self.session sendData:data toPeers:peers withMode:MCSessionSendDataReliable error:&error];
         dispatch_async(self.processQueue, ^{
+            progress.completedUnitCount = 100;
             NSLog(@"send pack:%@ result:%d error:%@",pack.resource,ret,error);
             [self onTaskEndSend:task withPeers:peers error:error];
         });
@@ -190,17 +241,19 @@
     NSString * fileName = [MZPackage makeStandHeadString:pack];
     NSURL * file = [[task packageWillSend] localFile];
     NSArray * peers = [self getPeersWillSend:pack];
-    
-    [self onTaskBeginSend:task withPeers:peers process:nil];
+    [self onTaskBeginSend:task withPeers:peers];
     dispatch_async(self.sendQueue, ^{
+        [task.progress becomeCurrentWithPendingUnitCount:50];
         NSProgress * process = [self.session sendResourceAtURL:file withName:fileName toPeer:peers.firstObject withCompletionHandler:^(NSError *error) {
+            NSLog(@"progress parent:%@",process);
             dispatch_async(self.processQueue, ^{
                 NSLog(@"send resource:%@ error:%@",file,error);
                 [self onTaskEndSend:task withPeers:peers error:error];
             });
         }];
+        [task.progress resignCurrent];
         dispatch_async(self.processQueue, ^{
-            [self onTaskBeginSend:task withPeers:peers process:process];
+            [self onTaskBeginSend:task withPeers:peers];
         });
     });
 }
@@ -217,6 +270,7 @@
 {
     dispatch_async(self.processQueue, ^{
         MZPackage * pack = [MZPackage packageWithData:data];
+        pack.peerName = peerID.displayName;
         [self onPackBeginRecv:pack withPeer:peerID process:nil];
         [self onPackEndRecv:pack withPeer:peerID error:nil];
     });
@@ -226,6 +280,7 @@
 {
     dispatch_async(self.processQueue, ^{
         MZPackage * pack = [MZPackage packageWithHeadString:resourceName];
+        pack.peerName = peerID.displayName;
         [self onPackBeginRecv:pack withPeer:peerID process:progress];
     });
 }
@@ -234,13 +289,10 @@
 {
     dispatch_async(self.processQueue, ^{
         MZPackage * pack = [MZPackage packageWithHeadString:resourceName];
-        pack = [self.recving objectForKey:pack.resource];
-        if(error){
-            pack.error = error;
-        }
-        else{
-            pack.localFile = localURL;
-        }
+        pack = [self.fileRecving objectForKey:pack.resource];
+        NSAssert([pack.peerName isEqualToString:peerID.displayName], @"peer error");
+        pack.peerName = peerID.displayName;
+        pack.localFile = localURL;
         [self onPackEndRecv:pack withPeer:peerID error:error];
     });
 }

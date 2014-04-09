@@ -15,6 +15,6 @@
 @property (strong) NSDictionary * info;
 @property (strong) NSURL * localFile;
 @property (strong) id data;
-@property (strong) NSError * error;
-@property (strong) NSProgress * progress;
+//@property (strong) NSError * error;
+//@property (strong) NSProgress * progress;
 @end

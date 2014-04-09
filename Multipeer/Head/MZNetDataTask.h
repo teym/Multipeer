@@ -12,6 +12,7 @@
 @interface MZNetDataTask : NSObject
 @property (strong) MZRequest * request;
 @property (strong) MZResponse * response;
-@property (assign) float * process;
+@property (strong) NSProgress * progress;
+@property (strong) NSError * error;
 @property (copy) void(^finalBlock)(MZRequest*,MZResponse*,NSError*);
 @end

@@ -14,7 +14,7 @@
 
 @protocol MZNetServiceDelegate <NSObject>
 -(BOOL) shouldConnect:(MZPeer*) peer type:(NSString*) type;
--(void) onRequest:(MZRequest*) request withInfo:(id) info;
+-(void) onRequest:(MZRequest*) request fromPeer:(MZPeer*) peer;
 -(void) onNewPeer:(MZPeer*) peer type:(NSString*) type;
 @end
 
@@ -24,6 +24,5 @@
 -(void) startService:(NSDictionary*) info;
 -(void) stopService;
 -(MZNetDataTask*) request:(MZRequest*) request withFinalBlock:(void(^)(MZRequest*request,MZResponse* response,NSError*error)) block;
-
 -(MZNetDataTask*) response:(MZResponse*) respons forRequest:(MZRequest*)request withFinalBlock:(void(^)(MZRequest*request,MZResponse* response,NSError*error))block;
 @end
