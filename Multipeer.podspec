@@ -112,8 +112,8 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  # s.framework  = 'SomeFramework'
-   s.frameworks = 'MultipeerConnectivity', 'Foundation'
+   s.framework  = 'MultipeerConnectivity'
+  # s.frameworks = 'MultipeerConnectivity'
 
   # s.library   = 'iconv'
   # s.libraries = 'iconv', 'xml2'
